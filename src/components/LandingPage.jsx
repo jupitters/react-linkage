@@ -24,6 +24,14 @@ const LandingPage = () => {
                     </button>
                 </div>
             </div>
+            <div className='flex-1 flex justify-center w-full'>
+                <img className='sm:w-[480px] w-[400px] object-cover rounded-md' src='/images/img2.png' alt='' />
+            </div>
+        </div>
+        <div className='sm:pt-12 pt-7'>
+            <p className='text-slate-800 font-roboto font-bold lg:w-[60%] md:w-[70%] sm:w-[80%] mx-auto text-3-xl text-center'>
+                Trusted By individuals and teams at the world best companies
+            </p>
         </div>
     </div>
   )
