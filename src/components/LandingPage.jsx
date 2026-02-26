@@ -25,7 +25,7 @@ const LandingPage = () => {
                 </div>
             </div>
             <div className='flex-1 flex justify-center w-full'>
-                <img className='sm:w-[480px] w-[400px] object-cover rounded-md' src='/images/img2.png' alt='' />
+                <img className='sm:w-120 w-100 object-cover rounded-md' src='/images/img2.png' alt='' />
             </div>
         </div>
         <div className='sm:pt-12 pt-7'>
