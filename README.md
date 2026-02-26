@@ -1,4 +1,4 @@
-# Url shortener frontend. Backend on: https://github.com/jupitters/linkage-urlshortener
+Url shortener frontend. Backend on: https://github.com/jupitters/linkage-urlshortener
 
 # React + Vite
 
