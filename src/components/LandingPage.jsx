@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from './Card';
+import { useNavigate } from 'react-router-dom';
 
 const LandingPage = () => {
     const navigate = useNavigate()
