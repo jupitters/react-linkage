@@ -24,7 +24,7 @@ const Navbar = () => {
             navbarOpen ? "h-fit sm:pb-0 pb-5" : "h-0 overflow-hidden"
           }  transition-all duration-100 sm:h-fit sm:bg-none  bg-custom-gradient sm:w-fit w-full sm:flex-row flex-col px-4 sm:px-0`}
         >
-          <li className="hover:text-btnColor font-[500]  transition-all duration-150">
+          <li className="hover:text-btnColor font-medium  transition-all duration-150">
             <Link
               className={`${
                 path === "/" ? "text-white font-semibold" : "text-gray-200"
@@ -34,7 +34,7 @@ const Navbar = () => {
               Home
             </Link>
           </li>
-          <li className="hover:text-btnColor font-[500]  transition-all duration-150">
+          <li className="hover:text-btnColor font-medium  transition-all duration-150">
             <Link
               className={`${
                 path === "/about" ? "text-white font-semibold" : "text-gray-200"
@@ -45,7 +45,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="">
+            <Link to="/register">
               <li className=" sm:ml-0 -ml-1 bg-rose-700 text-white  cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md  hover:text-slate-300   transition-all duration-150">
                 SignUp
               </li>
