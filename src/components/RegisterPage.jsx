@@ -34,6 +34,27 @@ const RegisterPage = () => {
                 register={register}
                 errors={errors}
             />
+            <TextField 
+                label="Email"
+                required
+                id="email"
+                type="email"
+                message="email is required!"
+                placeholder="Type your email"
+                register={register}
+                errors={errors}
+            />
+            <TextField 
+                label="Password"
+                required
+                id="password"
+                type="password"
+                message="password is required!"
+                placeholder="Type your password"
+                register={register}
+                min={6}
+                errors={errors}
+            />
         </div>
         </form>
     </div>
