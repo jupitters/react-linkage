@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import TextField from './TextField'
+import { Link } from 'react-router-dom'
 
 const RegisterPage = () => {
     const [loader, setLoader] = useState(false)
@@ -58,9 +59,11 @@ const RegisterPage = () => {
                 errors={errors}
             />
         </div>
-        <button type='submit' className='bg-customRed font-semibold text-white  bg-custom-gradient w-full py-2 hover:text-slate-400 transition-colors duration-100 rounded-sm my-3'>
-            Register
+        <button disabled={loader} type='submit' className='bg-customRed font-semibold text-white  bg-custom-gradient w-full py-2 hover:text-slate-400 transition-colors duration-100 rounded-sm my-3'>
+            {loader ? "Loading..." : "Register"}
         </button>
+
+        <p className='text-center text-sm text-slate-700 mt-6'>Already have and account? <Link><span className='text-btnColor'>Login</span></Link></p>
         </form>
     </div>
   )
