@@ -6,7 +6,7 @@ const LandingPage = () => {
   "Generate short, memorable links with ease using Linkage intuitive interface. Share URLs effortlessly across platforms. Optimize your sharing strategy with Linklytics. Track clicks and manage your links seamlessly to enhance your online presence. Generate short, memorable links with ease using Linkage intuitive interface. Share URLs effortlessly across platforms.";
 
   return (
-    <div className='min-h-[calc(100vh-64px)] lg:px-14'>
+    <div className="min-h-[calc(100vh-64px)] lg:px-14">
         <div className='lg:flex-row flex-col lg:py-5 pt-16 lg:gap-10 gap-8 flex justify-between'>
             <div className='flex-1'>
                 <h1 className='font-bold font-roboto text-slate-800 md:text-5xl text-3xl md:leading-13.75 sm:leading-11.25 leading-10 lg:w-full md:w-[70%] w-full'>Linkage Simplifies URL Shortening For Efficient Sharing</h1>
