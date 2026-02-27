@@ -9,8 +9,7 @@ const LandingPage = () => {
     <div className='min-h-[calc(100vh-64px)] lg:px-14'>
         <div className='lg:flex-row flex-col lg:py-5 pt-16 lg:gap-10 gap-8 flex justify-between'>
             <div className='flex-1'>
-                <motion.h1 initial={{ opacity: 0, y: -80}} whileInView={{ opacity: 1, y: 0}} viewport={{ once: true}} transition={{ duration: 0.8 }}
-                className='font-bold font-roboto text-slate-800 md:text-5xl text-3xl md:leading-13.75 sm:leading-11.25 leading-10 lg:w-full md:w-[70%] w-full'>Linkage Simplifies URL Shortening For Efficient Sharing</motion.h1>
+                <h1 className='font-bold font-roboto text-slate-800 md:text-5xl text-3xl md:leading-13.75 sm:leading-11.25 leading-10 lg:w-full md:w-[70%] w-full'>Linkage Simplifies URL Shortening For Efficient Sharing</h1>
                 <p className='text-slate-700 text-sm my-5'>
                     Linkage streamlines the process of URL shortening, making sharing
                     links effortless and efficient. With its user-friendly interface,
