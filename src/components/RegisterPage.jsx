@@ -29,7 +29,7 @@ const RegisterPage = () => {
                 required
                 id="username"
                 type="text"
-                message="*Username is required!"
+                message="Username is required!"
                 placeholder="Type your username"
                 register={register}
                 errors={errors}
