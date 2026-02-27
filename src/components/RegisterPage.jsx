@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import TextField from './TextField'
 
 const RegisterPage = () => {
+    const [loader, setLoader] = useState(false)
+
     const {register, handleSubmit, reset, formState: {errors}} = useForm(
         {
             defaultValues: {
