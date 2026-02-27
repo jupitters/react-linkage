@@ -2,6 +2,10 @@ import React from 'react'
 import Card from './Card';
 
 const LandingPage = () => {
+    const navigate = useNavigate()
+
+    const dashboardNavigateHandler = () => {}
+
     let desc =
   "Generate short, memorable links with ease using Linkage intuitive interface. Share URLs effortlessly across platforms. Optimize your sharing strategy with Linklytics. Track clicks and manage your links seamlessly to enhance your online presence. Generate short, memorable links with ease using Linkage intuitive interface. Share URLs effortlessly across platforms.";
 
@@ -17,10 +21,10 @@ const LandingPage = () => {
                     seconds. Simplify your sharing experience with Linkage today.
                 </p>
                 <div className='flex items-center gap-3'>
-                    <button className='bg-custom-gradient w-40 text-white rounded-md py-2 cursor-pointer'>
+                    <button onClick={dashboardNavigateHandler} className='bg-custom-gradient w-40 text-white rounded-md py-2 cursor-pointer'>
                         Manage Links
                     </button>
-                    <button className='border-btnColor border w-40 text-btnColor rounded-md py-2 cursor-pointer'>
+                    <button onClick={dashboardNavigateHandler} className='border-btnColor border w-40 text-btnColor rounded-md py-2 cursor-pointer'>
                         Create Short Link
                     </button>
                 </div>
