@@ -7,7 +7,7 @@ import toast from 'react-hot-toast'
 import { useStoredContext } from '../contextApi/ContextApi'
 
 const LoginPage = () => {
-    const { setToken } = useStoredContext
+    const { setToken } = useStoredContext()
     const navigate = useNavigate()
     const [loader, setLoader] = useState(false)
 

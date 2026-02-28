@@ -2,7 +2,9 @@ import React from 'react'
 
 const DashboardLayout = () => {
   return (
-    <div>DashboardLayout</div>
+    <div className='lg:px-14 sm:px-8 px-4 min-h-[calc(100vh-64px)]'>
+        
+    </div>
   )
 }
 
