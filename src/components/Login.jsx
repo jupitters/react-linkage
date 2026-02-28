@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import TextField from './TextField'
 import { Link, useNavigate } from 'react-router-dom'
 import api from '../api/api'
 import toast from 'react-hot-toast'
+import { ContextProvider } from '../contextApi/ContextApi'
 
 const Login = () => {
-  const navigate = useNavigate()
+    const { setToken } = useContext(ContextProvider)
+    const navigate = useNavigate()
     const [loader, setLoader] = useState(false)
 
     const {register, handleSubmit, reset, formState: {errors}} = useForm(
@@ -24,6 +26,7 @@ const Login = () => {
         setLoader(true)
         try{
             const { data: response } = await api.post("/api/v1/auth/login", data)
+            setToken(response.token)
             localStorage.setItem("jwt_token", JSON.stringify(response.token))
 
             toast.success("Login Successfull!")
