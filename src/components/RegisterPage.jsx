@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import TextField from './TextField'
 import { Link, useNavigate } from 'react-router-dom'
 import api from '../api/api'
+import toast from 'react-hot-toast'
 
 const RegisterPage = () => {
     const navigate = useNavigate()
@@ -25,9 +26,10 @@ const RegisterPage = () => {
             const { data: response } = await api.post("/api/v1/auth/register", data)
             reset()
             navigate("/login")
-
+            toast.success("Registration Successfull!")
         } catch (err){
             console.log(err)
+            toast.success("Registration Failed!")
         } finally {
             setLoader(false)
         }
