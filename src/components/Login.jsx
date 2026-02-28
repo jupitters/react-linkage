@@ -1,13 +1,13 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import TextField from './TextField'
 import { Link, useNavigate } from 'react-router-dom'
 import api from '../api/api'
 import toast from 'react-hot-toast'
-import { ContextApi } from '../contextApi/ContextApi'
+import { useStoredContext } from '../contextApi/ContextApi'
 
 const Login = () => {
-    const { setToken } = useContext(ContextApi)
+    const { setToken } = useStoredContext
     const navigate = useNavigate()
     const [loader, setLoader] = useState(false)
 

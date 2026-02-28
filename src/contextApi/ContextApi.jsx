@@ -1,6 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
-export const ContextApi = createContext()
+const ContextApi = createContext()
 
 export const ContextProvider = ({ children }) => {
     const getToken = localStorage.getItem("jwt_token") ? JSON.parse(localStorage.getItem("jwt_token")): null
@@ -12,4 +12,9 @@ export const ContextProvider = ({ children }) => {
     }
 
     return <ContextApi.Provider value={sendData}>{ children }</ContextApi.Provider>
+}
+
+export const useStoredContext = () => {
+    const context = useContext(ContextApi)
+    return context;
 }
