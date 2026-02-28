@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import TextField from './TextField'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import api from '../api/api'
 
 const RegisterPage = () => {
+    const navigate = useNavigate()
     const [loader, setLoader] = useState(false)
 
     const {register, handleSubmit, reset, formState: {errors}} = useForm(
@@ -18,7 +20,17 @@ const RegisterPage = () => {
     );
 
     const registerHandler = async (data) => {
-        
+        setLoader(true)
+        try{
+            const { data: response } = await api.post("/api/v1/auth/register", data)
+            reset()
+            navigate("/login")
+
+        } catch (err){
+            console.log(err)
+        } finally {
+            setLoader(false)
+        }
     }
 
   return (
