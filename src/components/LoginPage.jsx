@@ -6,7 +6,7 @@ import api from '../api/api'
 import toast from 'react-hot-toast'
 import { useStoredContext } from '../contextApi/ContextApi'
 
-const Login = () => {
+const LoginPage = () => {
     const { setToken } = useStoredContext
     const navigate = useNavigate()
     const [loader, setLoader] = useState(false)
@@ -31,7 +31,7 @@ const Login = () => {
 
             toast.success("Login Successfull!")
             reset()
-            navigate("/")
+            navigate("/dashboard")
         } catch (err){
             console.log(err)
             toast.error("Login Failed!")
@@ -78,4 +78,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginPage
