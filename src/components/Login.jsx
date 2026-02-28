@@ -23,8 +23,12 @@ const Login = () => {
     const loginHandler = async (data) => {
         setLoader(true)
         try{
-            
+            const { data: response } = await api.post("/api/v1/auth/login", data)
+            localStorage.setItem("jwt_token", JSON.stringify(response.token))
+
             toast.success("Login Successfull!")
+            reset()
+            navigate("/")
         } catch (err){
             console.log(err)
             toast.error("Login Failed!")
@@ -65,7 +69,7 @@ const Login = () => {
             {loader ? "Loading..." : "Login"}
         </button>
 
-        <p className='text-center text-sm text-slate-700 mt-6'>Don't have and account? <Link className='font-semibold underline hover:text-black' to="/register"><span className='text-btnColor'>Register here!</span></Link></p>
+        <p className='text-center text-sm text-slate-700 mt-6'>Don't have and account? <Link className='font-semibold underline hover:text-black' to="/register"><span className='text-btnColor'>Sign up here!</span></Link></p>
         </form>
     </div>
   )

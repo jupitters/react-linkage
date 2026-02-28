@@ -77,7 +77,7 @@ const RegisterPage = () => {
             {loader ? "Loading..." : "Register"}
         </button>
 
-        <p className='text-center text-sm text-slate-700 mt-6'>Already have and account? <Link className='font-semibold underline hover:text-black' to="/login"><span className='text-btnColor'>Login</span></Link></p>
+        <p className='text-center text-sm text-slate-700 mt-6'>Already have and account? <Link className='font-semibold underline hover:text-black' to="/login"><span className='text-btnColor'>Sign in here!</span></Link></p>
         </form>
     </div>
   )
