@@ -4,10 +4,10 @@ import TextField from './TextField'
 import { Link, useNavigate } from 'react-router-dom'
 import api from '../api/api'
 import toast from 'react-hot-toast'
-import { ContextProvider } from '../contextApi/ContextApi'
+import { ContextApi } from '../contextApi/ContextApi'
 
 const Login = () => {
-    const { setToken } = useContext(ContextProvider)
+    const { setToken } = useContext(ContextApi)
     const navigate = useNavigate()
     const [loader, setLoader] = useState(false)
 

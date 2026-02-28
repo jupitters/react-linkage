@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-const ContextApi = createContext()
+export const ContextApi = createContext()
 
 export const ContextProvider = ({ children }) => {
     const getToken = localStorage.getItem("jwt_token") ? JSON.parse(localStorage.getItem("jwt_token")): null

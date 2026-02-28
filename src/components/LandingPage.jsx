@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Card from './Card';
 import { useNavigate } from 'react-router-dom';
+import { ContextApi } from '../contextApi/ContextApi';
 
 const LandingPage = () => {
+    const { token } = useContext(ContextApi)
     const navigate = useNavigate()
 
     const dashboardNavigateHandler = () => {}
