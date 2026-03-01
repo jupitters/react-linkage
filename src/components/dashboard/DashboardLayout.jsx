@@ -36,7 +36,7 @@ const DashboardLayout = () => {
                 <Graph graphData={totalClicks} />
             </div>
             <div className="py-5 sm:text-end text-center">
-              <button className='bg-custom-gradient px-4 py-2 rounded-md text-white' onClick={() => setShortenPopUp(true)}>
+              <button className='bg-custom-gradient px-4 py-2 rounded-md text-white cursor-pointer' onClick={() => setShortenPopUp(true)}>
                 Create a New Short URL
               </button>
             </div>
