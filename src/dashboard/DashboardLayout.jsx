@@ -6,15 +6,17 @@ import { useFetchTotalClicks } from '../hooks/useQuery'
 
 const DashboardLayout = () => {
   const { token } = useStoredContext();
-
-  useFetchTotalClicks(token, onError);
-
   const onError = (error) => {
     console.log(error)
   }
 
+  const { isLoading: loader, data: totalClicks } = useFetchTotalClicks(token, onError);
+
   return (
     <div className='lg:px-14 sm:px-8 px-4 min-h-[calc(100vh-64px)]'>
+      {loader ? (
+        <p>Loading...</p>
+      ) : (
         <div className='lg:w-[90%] w-full mx-auto py-16'>
             <div className='h-96 relative'>
                 <Graph graphData={dummyData} />
@@ -25,6 +27,7 @@ const DashboardLayout = () => {
               </button>
             </div>
         </div>
+      )}
     </div>
   )
 }
