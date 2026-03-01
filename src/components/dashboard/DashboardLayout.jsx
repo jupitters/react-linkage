@@ -3,9 +3,11 @@ import Graph from './Graph'
 import { dummyData } from '../../dummyData/data'
 import { useStoredContext } from '../../contextApi/ContextApi'
 import { useFetchTotalClicks } from '../../hooks/useQuery'
+import ShortenPopUp from './ShortenPopUp'
 
 const DashboardLayout = () => {
   const { token } = useStoredContext();
+  const refetch = false;
   const [shortenPopUp, setShortenPopUp] = useState(false);
   const onError = (error) => {
     console.log(error)
@@ -40,6 +42,8 @@ const DashboardLayout = () => {
             </div>
         </div>
       )}
+
+      <ShortenPopUp refetch={refetch} open={shortenPopUp} setOpen={setShortenPopUp} />
     </div>
   )
 }

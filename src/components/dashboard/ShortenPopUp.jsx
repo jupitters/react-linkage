@@ -6,6 +6,7 @@ const ShortenPopUp = ({ open, setOpen, refetch }) => {
     const handleClose = () => {
         setOpen(false);
     };
+    
   return (
     <Modal
         open={open}
