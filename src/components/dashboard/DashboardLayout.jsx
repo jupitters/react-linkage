@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Graph from './Graph'
-import { dummyData } from '../dummyData/data'
-import { useStoredContext } from '../contextApi/ContextApi'
-import { useFetchTotalClicks } from '../hooks/useQuery'
+import { dummyData } from '../../dummyData/data'
+import { useStoredContext } from '../../contextApi/ContextApi'
+import { useFetchTotalClicks } from '../../hooks/useQuery'
 
 const DashboardLayout = () => {
   const { token } = useStoredContext();
