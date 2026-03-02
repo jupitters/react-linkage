@@ -5,8 +5,10 @@ import {  FaRegCalendarAlt } from 'react-icons/fa';
 import { IoCopy } from 'react-icons/io5';
 import { LiaCheckSolid } from 'react-icons/lia';
 import {  MdAnalytics, MdOutlineAdsClick } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 
 const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
+    const navigate = useNavigate();
     const [isCopied, setIsCopied] = useState(false);
     const [analyticsToggle, setAnalyticsToggle] = useState(false);
     const [loader, setLoader] = useState(false);
@@ -47,8 +49,12 @@ const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
                     Authorization: "Bearer " + token,
                 },
             })
+
+            setAnalyticsData(data)
+            setSelectedUrl("")
         } catch (err) {
-            Toaster.error(err)
+            navigate("/error")
+            console.log(err)
         }
     }
 
