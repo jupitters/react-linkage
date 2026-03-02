@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 import React, { useState } from 'react'
+import { Toaster } from 'react-hot-toast';
 import {  FaRegCalendarAlt } from 'react-icons/fa';
 import { IoCopy } from 'react-icons/io5';
 import { LiaCheckSolid } from 'react-icons/lia';
@@ -8,7 +9,9 @@ import {  MdAnalytics, MdOutlineAdsClick } from 'react-icons/md';
 const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
     const [isCopied, setIsCopied] = useState(false);
     const [analyticsToggle, setAnalyticsToggle] = useState(false);
+    const [loader, setLoader] = useState(false);
     const [selectedUrl, setSelectedUrl] = useState("");
+    const [analyticsData, setAnalyticsData] = useState([]);
 
     const subDomain = import.meta.env.VITE_REACT_FRONT_END_URL.replace(
         /^https?:\/\//,
@@ -32,6 +35,21 @@ const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
             setSelectedUrl(shortUrl)
         }
         setAnalyticsToggle(!analyticsToggle)
+    }
+
+    const fetchMyShortUrl = async () => {
+        setLoader(true)
+        try{
+            const { data } = await api.get(`/api/v1/urls/analytics/${selectedUrl}?startDate=2026-01-01T00:00:00&endDate=2026-12-31T23:59:59`, { 
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: "Bearer " + token,
+                },
+            })
+        } catch (err) {
+            Toaster.error(err)
+        }
     }
 
   return (
@@ -88,7 +106,11 @@ const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
         <React.Fragment>
             <div  className={`${
             analyticsToggle ? "flex" : "hidden"}  max-h-96 sm:mt-0 mt-5 min-h-96 relative  border-t-2 w-[100%] overflow-hidden `}>
+                {loader ? (
 
+                ) : (
+
+                )}
             </div>
         </React.Fragment>
     </div>
