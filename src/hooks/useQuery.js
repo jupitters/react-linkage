@@ -29,3 +29,28 @@ export const useFetchTotalClicks = (token, onError) => {
         staleTime: 5000
     })
 }
+
+export const useFetchMyShortUrls = (token, onError) => {
+    return useQuery({
+        queryKey: ["my-shorturls"],
+        queryFn: async () => {
+            return await api.get("api/v1/urls/my-urls",
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                        Authorization: "Bearer " + token,
+                    },
+                }
+            ) 
+        },
+        enabled: !!token,
+
+        select: (data) => {
+            const sortedData = data.data.sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate))
+            return sortedData;
+        },
+        onError,
+        staleTime: 5000
+    })
+}
