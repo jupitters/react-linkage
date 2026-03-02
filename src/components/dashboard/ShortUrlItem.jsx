@@ -1,7 +1,9 @@
 import dayjs from 'dayjs';
 import React, { useState } from 'react'
 import {  FaRegCalendarAlt } from 'react-icons/fa';
-import {  MdOutlineAdsClick } from 'react-icons/md';
+import { IoCopy } from 'react-icons/io5';
+import { LiaCheckSolid } from 'react-icons/lia';
+import {  MdAnalytics, MdOutlineAdsClick } from 'react-icons/md';
 
 const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
     const [isCopied, setIsCopied] = useState(false);
@@ -28,7 +30,7 @@ const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
         <div className={`flex sm:flex-row flex-col  sm:justify-between w-full sm:gap-0 gap-5 py-5 `}>
             <div className="flex-1 sm:space-y-1 max-w-full overflow-x-auto overflow-y-hidden ">
                 <div className="text-slate-900 pb-1 sm:pb-0   flex items-center gap-2 ">
-                    <a href={`${import.meta.env.VITE_REACT_SUBDOMAIN}/${shortUrl}`}
+                    <a href={`${import.meta.env.VITE_REACT_FRONT_END_URL}/${shortUrl}`}
                         target="_blank"
                         className=" text-[17px]  font-montserrat font-[600] text-linkColor ">
                         {subDomain + "/" + `${shortUrl}`}
@@ -66,6 +68,12 @@ const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
                 ) : (
                     <IoCopy className="text-md" />
                 )}
+            </div>
+            <div
+                onClick={() => analyticsHandler(shortUrl)}
+                className="flex cursor-pointer gap-1 items-center bg-rose-700 py-2 font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white ">
+                <button>Analytics</button>
+                <MdAnalytics className="text-md" />
             </div>
         </div>
     </div>
