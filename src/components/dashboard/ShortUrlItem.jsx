@@ -22,6 +22,13 @@ const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
                         {originalUrl}
                     </h3>
                 </div>
+                <div className='flex items-center gap-8 pt-6'>
+                    <div className='flex gap-1 items-center font-semibold text-green-800'>
+                        <span><MdOutlineAdsClick className='text-[22px] me-1' /> </span>
+                        <span className='text-[16px]'>{clickCount}</span>
+                        <span className='text-[15px]'>{clickCount === 0 || clickCount === 1 ? "Click" : "Clicks"}</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
