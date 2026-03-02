@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Toaster } from 'react-hot-toast';
 import {  FaRegCalendarAlt } from 'react-icons/fa';
 import { IoCopy } from 'react-icons/io5';
@@ -55,8 +55,16 @@ const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
         } catch (err) {
             navigate("/error")
             console.log(err)
+        } finally {
+            setLoader(false)
         }
     }
+
+    useEffect(() => {
+        if(selectedUrl) {
+            fetchMyShortUrl();
+        }
+    }, [selectedUrl])
 
   return (
     <div className={`bg-slate-100 shadow-lg border border-dotted  border-slate-500 px-6 sm:py-1 py-3 rounded-md  transition-all duration-100 `}>
