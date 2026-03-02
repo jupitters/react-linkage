@@ -1,11 +1,27 @@
 import dayjs from 'dayjs';
-import React from 'react'
+import React, { useState } from 'react'
+import {  FaRegCalendarAlt } from 'react-icons/fa';
+import {  MdOutlineAdsClick } from 'react-icons/md';
 
 const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
+    const [copied, setIsCopied] = useState(false);
+
     const subDomain = import.meta.env.VITE_REACT_FRONT_END_URL.replace(
         /^https?:\/\//,
         ""
       );
+
+    const handleCopy = async () => {
+        try {
+            const fullUrl = `${import.meta.env.VITE_REACT_FRONT_END_URL}/s/${shortUrl}`;
+            await navigator.clipboard.writeText(fullUrl);
+
+            setIsCopied(true);
+            setTimeout(() => setIsCopied(false), 2000);
+        } catch (err) {
+            console.error("Copy failed:", err);
+        }
+    };
 
   return (
     <div className={`bg-slate-100 shadow-lg border border-dotted  border-slate-500 px-6 sm:py-1 py-3 rounded-md  transition-all duration-100 `}>
@@ -37,6 +53,7 @@ const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
                         </span>
                 </div>
             </div>
+
         </div>
     </div>
   )
