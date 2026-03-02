@@ -4,6 +4,7 @@ import { dummyData } from '../../dummyData/data'
 import { useStoredContext } from '../../contextApi/ContextApi'
 import { useFetchMyShortUrls, useFetchTotalClicks } from '../../hooks/useQuery'
 import ShortenPopUp from './ShortenPopUp'
+import ShortenUrlList from './ShortenUrlList'
 
 const DashboardLayout = () => {
   const { token } = useStoredContext();
@@ -53,7 +54,7 @@ const DashboardLayout = () => {
                     </div>
                   </div>
                 ) : (
-
+                  <ShortenUrlList data={myShortenUrls} />
                 )}
             </div>
         </div>
