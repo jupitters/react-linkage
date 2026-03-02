@@ -1,8 +1,8 @@
 import React from 'react'
 
-const ShortUrlItem = () => {
+const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
   return (
-    <div>ShortUrlItem</div>
+    <div>{shortUrl}</div>
   )
 }
 
