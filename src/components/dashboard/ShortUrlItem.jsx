@@ -7,6 +7,8 @@ import {  MdAnalytics, MdOutlineAdsClick } from 'react-icons/md';
 
 const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
     const [isCopied, setIsCopied] = useState(false);
+    const [analyticsToggle, setAnalyticsToggle] = useState(false);
+    const [selectedUrl, setSelectedUrl] = useState("");
 
     const subDomain = import.meta.env.VITE_REACT_FRONT_END_URL.replace(
         /^https?:\/\//,
@@ -24,6 +26,13 @@ const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
             console.error("Copy failed:", err);
         }
     };
+
+    const analyticsHandler = (shortUrl) => {
+        if(!analyticsToggle){
+            setSelectedUrl(shortUrl)
+        }
+        setAnalyticsToggle(!analyticsToggle)
+    }
 
   return (
     <div className={`bg-slate-100 shadow-lg border border-dotted  border-slate-500 px-6 sm:py-1 py-3 rounded-md  transition-all duration-100 `}>
@@ -76,6 +85,12 @@ const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
                 <MdAnalytics className="text-md" />
             </div>
         </div>
+        <React.Fragment>
+            <div  className={`${
+            analyticsToggle ? "flex" : "hidden"}  max-h-96 sm:mt-0 mt-5 min-h-96 relative  border-t-2 w-[100%] overflow-hidden `}>
+
+            </div>
+        </React.Fragment>
     </div>
   )
 }
