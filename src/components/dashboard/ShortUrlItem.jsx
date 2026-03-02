@@ -17,7 +17,11 @@ const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
                         {subDomain + "/" + `${shortUrl}`}
                     </a>
                 </div>
-                
+                <div className='flex items-center gap-1'>
+                    <h3 className='text-slate-700 font-normal text-[17px]'>
+                        {originalUrl}
+                    </h3>
+                </div>
             </div>
         </div>
     </div>
