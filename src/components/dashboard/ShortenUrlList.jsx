@@ -1,8 +1,12 @@
 import React from 'react'
 
-const ShortenUrlList = () => {
+const ShortenUrlList = ({ data }) => {
   return (
-    <div>ShortenUrlList</div>
+    <div className='my-6 space-y-4 '>
+        {data.map((item) => {
+            
+        })}
+    </div>
   )
 }
 
