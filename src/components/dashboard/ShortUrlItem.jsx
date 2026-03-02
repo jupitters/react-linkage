@@ -26,8 +26,14 @@ const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
                     <div className='flex gap-1 items-center font-semibold text-green-800'>
                         <span><MdOutlineAdsClick className='text-[22px] me-1' /> </span>
                         <span className='text-[16px]'>{clickCount}</span>
-                        <span className='text-[15px]'>{clickCount === 0 || clickCount === 1 ? "Click" : "Clicks"}</span>
+                        <span className='text-[15px]'>{clickCount === 1 ? "Click" : "Clicks"}</span>
                     </div>
+                </div>
+                <div className='flex items-center gap-2 font-semibold text-lg text-slate-800'>
+                        <span><FaRegCalendarAlt /></span>
+                        <span className='text-[17px]'>
+                            {dayjs(createdDate).format("MMM DD, YYYY")}
+                        </span>
                 </div>
             </div>
         </div>
