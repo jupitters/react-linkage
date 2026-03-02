@@ -7,6 +7,8 @@ import { LiaCheckSolid } from 'react-icons/lia';
 import {  MdAnalytics, MdOutlineAdsClick } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { useStoredContext } from '../../contextApi/ContextApi';
+import { Hourglass } from 'react-loader-spinner';
+import Graph from './Graph';
 
 const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
     const { token } = useStoredContext();
@@ -138,7 +140,22 @@ const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
                         </div>
                     </div>
                 ) : (
-
+                    <>
+                    {analyticsData.length === 0 && (
+                        <div>
+                            <div className="absolute flex flex-col  justify-center sm:items-center items-end  w-full left-0 top-0 bottom-0 right-0 m-auto">
+                                <h1 className=" text-slate-800 font-serif sm:text-2xl text-[15px] font-bold mb-1">
+                                    No Data For This Time Period
+                                </h1>
+                                <h3 className="sm:w-96 w-[90%] sm:ml-0 pl-6 text-center sm:text-lg text-[12px] text-slate-600 ">
+                                    Share your short link to view where your engagements are
+                                    coming from
+                                </h3>
+                            </div>
+                        </div>
+                    )}
+                    <Graph graphData={analyticsData} />
+                    </>
                 )}
             </div>
         </React.Fragment>
