@@ -4,7 +4,7 @@ import {  FaRegCalendarAlt } from 'react-icons/fa';
 import {  MdOutlineAdsClick } from 'react-icons/md';
 
 const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
-    const [copied, setIsCopied] = useState(false);
+    const [isCopied, setIsCopied] = useState(false);
 
     const subDomain = import.meta.env.VITE_REACT_FRONT_END_URL.replace(
         /^https?:\/\//,
@@ -53,7 +53,20 @@ const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
                         </span>
                 </div>
             </div>
+            <div
+                onClick={handleCopy}
+                className="flex cursor-pointer gap-1 items-center bg-btnColor py-2 font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white"
+                >
+                <button>
+                    {isCopied ? "Copied" : "Copy"}
+                </button>
 
+                {isCopied ? (
+                    <LiaCheckSolid className="text-md" />
+                ) : (
+                    <IoCopy className="text-md" />
+                )}
+            </div>
         </div>
     </div>
   )
