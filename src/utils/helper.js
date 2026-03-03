@@ -12,8 +12,11 @@ export const getApps = () => {
 }
 
 export const getSubdomain = (location) => {
-    const locationParts = location.split(".")
-    const isLocalhost = location.slice(-1)[0] === "localhost"
-    const sliceTill = isLocalhost ? -1 : -2
-    return locationParts.slice(0, sliceTill).join("")
+    if(location.includes("localhost")){
+        const locationParts = location.split(".")
+        return locationParts.length > 1 ? locationParts[0] : "";
+    }
+    
+    const parts = location.split(".");
+    return parts.length > 2 ? parts[0] : "";
 }
