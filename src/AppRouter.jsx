@@ -2,7 +2,7 @@ import ShortenUrlPage from "./components/ShortenUrlPage"
 
 const AppRouter = () => {
     return(
-        <BrowserRouter>
+        <>
         <NavBar />
             <Toaster />
                 <Routes>
@@ -13,7 +13,7 @@ const AppRouter = () => {
                     <Route path="/dashboard" element={<DashboardLayout />} />
                 </Routes>
             <Footer />
-        </BrowserRouter>
+        </>
     )
 }
 

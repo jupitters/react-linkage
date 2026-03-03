@@ -8,22 +8,14 @@ import RegisterPage from './components/RegisterPage'
 import { Toaster } from 'react-hot-toast'
 import DashboardLayout from './components/dashboard/DashboardLayout'
 import LoginPage from './components/LoginPage'
+import { getApps } from './utils/helper'
 
 function App() {
+  const CurrentApp = getApps();
 
   return (
-      <BrowserRouter>
-      <NavBar />
-      <Toaster />
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/dashboard" element={<DashboardLayout />} />
-        </Routes>
-      <Footer />
-      </BrowserRouter>
+       // eslint-disable-next-line react-hooks/static-components
+       <CurrentApp /> 
   )
 }
 
