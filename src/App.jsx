@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import './App.css'
 import LandingPage from './components/LandingPage'
 import AboutPage from './components/AboutPage'
@@ -12,7 +12,7 @@ import LoginPage from './components/LoginPage'
 function App() {
 
   return (
-      <>
+      <BrowserRouter>
       <NavBar />
       <Toaster />
         <Routes>
@@ -23,7 +23,7 @@ function App() {
           <Route path="/dashboard" element={<DashboardLayout />} />
         </Routes>
       <Footer />
-      </>
+      </BrowserRouter>
   )
 }
 
