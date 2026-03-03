@@ -4,6 +4,11 @@ export const getApps = () => {
     const subdomain = getSubdomain(window.location.hostname)
 
     const mainApp = subDomainList.find((app) => app.main)
+    if(subdomain === "") return mainApp.app
+
+    const apps = subDomainList.find((app) => subdomain === app.subdomain)
+
+    return apps ? apps.app : mainApp.app
 }
 
 export const getSubdomain = (location) => {
