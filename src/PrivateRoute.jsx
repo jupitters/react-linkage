@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { useStoredContext } from "./contextApi/ContextApi";
 
-export default PrivateRoute = ({ children, publicPage }) => {
+const PrivateRoute = ({ children, publicPage }) => {
     const { token } = useStoredContext();
 
     if(publicPage) {
@@ -10,3 +10,5 @@ export default PrivateRoute = ({ children, publicPage }) => {
     
     return !token ? <Navigate to="/login" /> : children
 }
+
+export default PrivateRoute

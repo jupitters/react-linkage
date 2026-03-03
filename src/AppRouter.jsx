@@ -8,6 +8,7 @@ import RegisterPage from './components/RegisterPage'
 import { Toaster } from 'react-hot-toast'
 import DashboardLayout from './components/dashboard/DashboardLayout'
 import LoginPage from './components/LoginPage'
+import PrivateRoute from "./PrivateRoute"
 
 const AppRouter = () => {
     return(
@@ -17,9 +18,11 @@ const AppRouter = () => {
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/about" element={<AboutPage />} />
-                    <Route path="/register" element={<RegisterPage />} />
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route path="/dashboard" element={<DashboardLayout />} />
+
+                    <Route path="/register" element={<PrivateRoute publicPage={true}> <RegisterPage /> </PrivateRoute>} />
+                    <Route path="/login" element={<PrivateRoute publicPage={true}> <LoginPage /> </PrivateRoute>} />
+
+                    <Route path="/dashboard" element={<PrivateRoute publicPage={false}> <DashboardLayout /> </PrivateRoute>} />
                 </Routes>
             <Footer />
         </>
