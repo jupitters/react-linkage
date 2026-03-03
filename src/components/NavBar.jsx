@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoIosMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
+import { useStoredContext } from "../contextApi/ContextApi";
 
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const { token } = useStoredContext();
   const path = useLocation().pathname;
   const [navbarOpen, setNavbarOpen] = useState(false);
 
@@ -44,6 +47,18 @@ const Navbar = () => {
               About
             </Link>
           </li>
+          {token && (
+            <li className="hover:text-btnColor font-medium  transition-all duration-150">
+            <Link
+              className={`${
+                path === "/dashboard" ? "text-white font-semibold" : "text-gray-200"
+              }`}
+              to="/dashboard"
+            >
+              Dashboard
+            </Link>
+          </li>
+          )}
           <li className=" sm:ml-0 -ml-1 bg-rose-700 text-white  cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md  hover:text-slate-300   transition-all duration-150">
             <Link to="/register">
                 SignUp
