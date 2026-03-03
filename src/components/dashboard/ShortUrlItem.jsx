@@ -73,7 +73,7 @@ const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
 
   return (
     <div className={`bg-slate-100 shadow-lg border border-dotted  border-slate-500 px-6 sm:py-1 py-3 rounded-md  transition-all duration-100 `}>
-        <div className={`flex sm:flex-row flex-col sm:items-start  sm:justify-between w-full sm:gap-0 gap-5 py-5 `}>
+        <div className={`flex sm:flex-row flex-col sm:items-center sm:justify-between w-full sm:gap-0 gap-5 py-5 `}>
             <div className="flex-1 sm:space-y-1 max-w-full overflow-x-auto overflow-y-hidden ">
                 <div className="text-slate-900 pb-1 sm:pb-0   flex items-center gap-2 ">
                     <a href={`${import.meta.env.VITE_REACT_FRONT_END_URL}/${shortUrl}`}
@@ -101,7 +101,7 @@ const ShortUrlItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
                         </span>
                 </div>
             </div>
-            <div className="flex gap-3 mt-4 sm:mt-0">
+            <div className="flex gap-3 mt-4 sm:mt-0 align-center">
                 <button
                     onClick={handleCopy}
                     className="flex cursor-pointer gap-1 items-center bg-btnColor py-2  font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white"
