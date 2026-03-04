@@ -7,12 +7,14 @@ import { useStoredContext } from "../contextApi/ContextApi";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { token } = useStoredContext();
+  const { token, setToken } = useStoredContext();
   const path = useLocation().pathname;
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   const onLogOutHandler = () => {
-    
+    setToken(null);
+    localStorage.removeItem("jwt_token")
+    navigate("/")
   };
 
   return (
