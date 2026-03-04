@@ -8,6 +8,9 @@ const ErrorPage = ({ message }) => {
         <h1 className='text-3xl font-bold mb-2 text-gray-800'>
             Oops! Something went wrong.
         </h1>
+        <p className='text-gray-600 mb-6 text-center'>
+            {message ? message : "An unexpected error has occured."}
+        </p>
     </div>
   )
 }
