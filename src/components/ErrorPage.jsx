@@ -1,7 +1,9 @@
 import React from 'react'
 import { FaExclamationTriangle } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 const ErrorPage = ({ message }) => {
+    const navigate = useNavigate()
   return (
     <div className='flex flex-col items-center justify-center min-h-[calc(100vh-64px)] bg-gray-100 p-6'>
         <FaExclamationTriangle className='text-6xl text-red-500 mb-4' />
@@ -11,6 +13,9 @@ const ErrorPage = ({ message }) => {
         <p className='text-gray-600 mb-6 text-center'>
             {message ? message : "An unexpected error has occured."}
         </p>
+        <button className='px-4 py-2 text-white rounded bg-blue-500 hover:bg-blue-700 transistion cursor-pointer' onClick={() => navigate("/")}>
+            Go back to home
+        </button>
     </div>
   )
 }
