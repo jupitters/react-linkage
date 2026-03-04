@@ -12,6 +12,7 @@ const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   const onLogOutHandler = () => {
+    
   };
 
   return (
@@ -60,11 +61,16 @@ const Navbar = () => {
           </li>
           )}
           {!token && (
-          <li className=" sm:ml-0 -ml-1 bg-rose-700 text-white  cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md  hover:text-slate-300   transition-all duration-150">
+          <li className="sm:ml-0 -ml-1 bg-rose-700 text-white  cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md  hover:text-slate-300 transition-all duration-150">
             <Link to="/register">
                 SignUp
             </Link>
           </li>
+          )}
+          {token && (
+          <button onClick={onLogOutHandler} className="sm:ml-0 -ml-1 bg-rose-700 text-white  cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md hover:text-slate-300 transition-all duration-150">
+            Logout
+          </button>
           )}
         </ul>
         <button
